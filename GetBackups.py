@@ -68,7 +68,6 @@ while True:
 
     time_difference = (target_time - current_time).total_seconds()
     if time_difference - 100 > 0:
-        print("A")
         time.sleep(time_difference - 100)
     do = True
     while do :
