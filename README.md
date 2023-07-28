@@ -1,22 +1,48 @@
- ________  _______  _________        ________  ________  ________  ___  __    ___  ___  ________  ________      
-|\   ____\|\  ___ \|\___   ___\     |\   __  \|\   __  \|\   ____\|\  \|\  \ |\  \|\  \|\   __  \|\   ____\     
-\ \  \___|\ \   __/\|___ \  \_|     \ \  \|\ /\ \  \|\  \ \  \___|\ \  \/  /|\ \  \\\  \ \  \|\  \ \  \___|_    
- \ \  \  __\ \  \_|/__  \ \  \       \ \   __  \ \   __  \ \  \    \ \   ___  \ \  \\\  \ \   ____\ \_____  \   
-  \ \  \|\  \ \  \_|\ \  \ \  \       \ \  \|\  \ \  \ \  \ \  \____\ \  \\ \  \ \  \\\  \ \  \___|\|____|\  \  
-   \ \_______\ \_______\  \ \__\       \ \_______\ \__\ \__\ \_______\ \__\\ \__\ \_______\ \__\     ____\_\  \ 
-    \|_______|\|_______|   \|__|        \|_______|\|__|\|__|\|_______|\|__| \|__|\|_______|\|__|    |\_________\
-                                                                                                    \|_________|
-By Noy.
 
-This tool is automaticly getting backups from your server.
+# FTP Backup Script
 
-To change backup hour, change `backup_Hour = "XX:XX"`
-Ex :
-	- "13:07"
-	- "00:00"
-	- "02:39"
+The FTP Backup Script is a Python script designed to automatically backup files from an FTP server to a local directory. It uses the `ftplib` library to connect to the FTP server and transfer files.
 
-To change other variables, the names are explicit.
-For Paths, be careful to not use `\` as it is a python tool, refer to python documentation.
+## Requirements
 
+- Python 3 - To install Python 3, please visit the official website: [https://www.python.org/](https://www.python.org/)
+- ftplib - To install the required library, use the following command:
+  ```bash
+  pip install pyftpdlib
+  ```
 
+## Configuration
+
+Before running the script, you need to configure the `ini.json` file in the same directory as the script. The `ini.json` file contains the following parameters:
+
+- `"server"`: The FTP server address.
+- `"username"`: The FTP server username.
+- `"password"`: The FTP server password.
+- `"remote_path"`: The remote path on the FTP server from where files will be backed up.
+- `"local_path"`: The local directory where the backup files will be saved.
+- `"backup_Hour"`: The time at which the backup will be executed in the format "HH:MM" (e.g., "02:30" for 2:30 AM).
+- `"days_before_removing_backup"`: The number of days after which backup files will be removed from the local directory to manage disk space.
+
+## Usage
+
+1. Configure the `ini.json` file with your FTP server and backup parameters.
+
+2. Run the FTP Backup Script using Python 3:
+   ```bash
+   python3 GetBackups.py
+   ```
+
+The script will connect to the FTP server, check for new files in the specified remote path, and download them to the local directory. It will also remove files older than the specified number of days (default is 7 days) from the local directory to manage disk space.
+
+## Note
+
+- The script assumes that the backup files on the FTP server have filenames starting with "Backup_" and followed by the date in the format "YYYY-MM-DD" (e.g., Backup_2023-07-19.zip).
+- The `days_before_removing_backup` variable specifies the number of days after which backup files will be removed from the local directory to maintain disk space.
+
+## Author
+
+- [Noy](https://github.com/4Noy)
+
+## Version
+
+- 0.1

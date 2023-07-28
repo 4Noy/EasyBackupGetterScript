@@ -39,7 +39,8 @@ except:
     "password": "yourPassw0rd", 
     "remote_path": "yourRemotePath", 
     "local_path": "yourLocalPath", 
-    "backup_Hour": "XX:XX"
+    "backup_Hour": "XX:XX",
+    "days_before_removing_backup" = "7"
 }
 """)
     exit()
@@ -50,6 +51,7 @@ try:
     remote_path = d["remote_path"]
     local_path = d["local_path"]
     backup_Hour = d["backup_Hour"]
+    days_before_removing_backup = int(d["days_before_removing_backup"])
 except:
     print("Error Please make sure the ini.json file is valid")
     exit()

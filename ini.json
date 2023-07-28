@@ -4,5 +4,6 @@
     "password": "Pm0t4m3d1*", 
     "remote_path": "daily_backup", 
     "local_path": "P:/Backups/mondeimaginaireVPS_Backups/", 
-    "backup_Hour": "03:55"
+    "backup_Hour": "03:55",
+    "days_before_removing_backup": "7"
 }
