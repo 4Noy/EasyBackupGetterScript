@@ -13,7 +13,7 @@ The FTP Backup Script is a Python script designed to automatically backup files 
 
 ## Configuration
 
-Before running the script, you need to configure the `ini.json` file in the same directory as the script. The `ini.json` file contains the following parameters:
+Run the script a first time to create `ini.json` with default parameters then configure the `ini.json` file in the same directory as the script. The `ini.json` file contains the following parameters:
 
 - `"server"`: The FTP server address.
 - `"username"`: The FTP server username.
